@@ -73,16 +73,16 @@ class ApprovedBooking extends StatelessWidget {
                                       .isLoadMoreRunning.value ==
                                   false) {
                                 return BookingCard(
-                                  profileImage: data!.user!.image.toString(),
-                                  profileName: data.user!.name.toString(),
-                                  date: data.date.toString(),
+                                  profileImage: data!.user!.image ?? "",
+                                  profileName: data.user!.name ?? "",
+                                  date: data.date ?? "",
                                   catelouges: approvedBookingController
                                       .approvedBookingModel[index]
                                       .catalogDetails,
-                                  totalPrice: data.price.toString(),
+                                  totalPrice: data.price ?? "",
                                   buttonLeft: "Complete".tr,
                                   buttonRight: "Mark as late".tr,
-                                  time: data.time.toString(),
+                                  time: data.time ?? "",
 
                                   //================================Complete Button=========================
 

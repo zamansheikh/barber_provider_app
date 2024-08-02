@@ -97,7 +97,7 @@ class BookingCard extends StatelessWidget {
                         fontSize: 12.w,
                         fontWeight: FontWeight.w500,
                         right: 0,
-                        text: "${catelouges![index].catalogName!} ",
+                        text: "${catelouges![index].catalogName ?? ""} ",
                       );
                     }),
                   ),

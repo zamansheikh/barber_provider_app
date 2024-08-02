@@ -1,5 +1,5 @@
 class ApiConstant {
-  static const baseUrl = "http://103.145.138.53:5000/";
+  static const baseUrl = "http://143.198.100.240/";
   static const paymentPublicKey =
       "FLWPUBK_TEST-b5bb5bbff5a355e6f0c070063af0f04b-X";
 

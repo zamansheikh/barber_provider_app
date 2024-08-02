@@ -22,7 +22,7 @@ class Authcontroller extends GetxController {
   String otp = "";
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController =
-      TextEditingController(text: kDebugMode ? "mdh95831@gmail.com" : "");
+      TextEditingController(text: kDebugMode ? "vapox12663@ekposta.com" : "");
   TextEditingController passWordController =
       TextEditingController(text: kDebugMode ? "1234567rr" : "");
   TextEditingController confirmPasController = TextEditingController();

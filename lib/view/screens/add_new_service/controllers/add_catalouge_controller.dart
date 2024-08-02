@@ -58,9 +58,8 @@ class AddCatalougeController extends GetxController {
   //============================Open the Gallary to pick image========================
 
   void openGallery() async {
-    final pickedFile = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-    );
+    final pickedFile = await ImagePicker()
+        .pickImage(source: ImageSource.gallery, imageQuality: 15);
 
     if (pickedFile != null) {
       galleryPhoto = File(pickedFile.path);

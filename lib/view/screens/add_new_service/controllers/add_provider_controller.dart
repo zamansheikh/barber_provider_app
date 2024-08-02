@@ -37,7 +37,7 @@ class AddProviderController extends GetxController {
 
   void openGallery({required bool isCoverPhoto}) async {
     final pickedFile = await ImagePicker()
-        .pickImage(source: ImageSource.gallery, imageQuality: 20);
+        .pickImage(source: ImageSource.gallery, imageQuality: 15);
 
     if (pickedFile != null) {
       if (isCoverPhoto) {

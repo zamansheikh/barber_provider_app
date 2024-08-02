@@ -56,9 +56,8 @@ class AddServiceController extends GetxController {
   //=================================Open Gallary for image==============================
 
   void openGallery() async {
-    final pickedFile = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-    );
+    final pickedFile = await ImagePicker()
+        .pickImage(source: ImageSource.gallery, imageQuality: 15);
 
     if (pickedFile != null) {
       pickGalleryPhoto = File(pickedFile.path);
