@@ -6,22 +6,22 @@ class NetworkInfo {
   NetworkInfo(this.connectivity);
 
   Future<bool> get isConnected async {
-    ConnectivityResult result = await connectivity.checkConnectivity();
-    return result != ConnectivityResult.none;
+    List<ConnectivityResult> result = await connectivity.checkConnectivity();
+    return result.contains(ConnectivityResult.wifi) ||
+        result.contains(ConnectivityResult.mobile);
   }
 
   static void checkConnectivity(GlobalKey<ScaffoldMessengerState> globalKey) {
     bool firstTime = true;
     Connectivity()
         .onConnectivityChanged
-        .listen((ConnectivityResult result) async {
+        .listen((List<ConnectivityResult> result) async {
       debugPrint("========> Check Network Info : $result");
       if (!firstTime) {
-        bool isNotConnected = result != ConnectivityResult.wifi &&
-            result != ConnectivityResult.mobile;
-        isNotConnected
-            ? const SizedBox()
-            : globalKey.currentState?.hideCurrentSnackBar();
+        bool isNotConnected = result.contains(ConnectivityResult.none);
+        if (!isNotConnected) {
+          globalKey.currentState?.hideCurrentSnackBar();
+        }
         debugPrint("========> Check Network Toast $isNotConnected");
         globalKey.currentState?.showSnackBar(SnackBar(
           backgroundColor: isNotConnected ? Colors.red : Colors.green,
@@ -32,6 +32,7 @@ class NetworkInfo {
           ),
         ));
       }
+
       firstTime = false;
     });
   }
